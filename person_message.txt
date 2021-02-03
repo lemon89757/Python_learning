@@ -1,0 +1,14 @@
+Aa male 11
+Bb female 12
+Cc female 13
+Dd male 14
+Ee male 15
+Ff male 16
+Gg male 17
+Hh female 18
+Ii male 19
+Jj male 20
+Kk female 21
+Ll female 22
+Nn female 23
+Mm male 24
