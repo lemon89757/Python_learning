@@ -6,21 +6,20 @@ class Josephus:
         self.start_number = start_number
         self.step = step
 
-    # def __iter__(self):
-    #     self.current_pos = self.start_number
-    #     return self
-    #
-    # def __next__(self):
-    #     remainder = 0
-    #     new_order = self._peoples[self.current_pos - 1:] + self._peoples[:self.current_pos - 1]
-    #     # while True:  # （是否需要，yield中也是否需要）
-    #     if len(new_order) > 0:
-    #         remainder = (remainder + (self.step - 1)) % len(new_order)
-    #         outer = new_order[remainder]
-    #         del new_order[remainder]
-    #         return outer
-    #     else:
-    #         raise StopIteration
+    def __iter__(self):
+        self.current_pos = self.start_number
+        self.remainder = 0
+        self.new_order = self._peoples[self.current_pos - 1:] + self._peoples[:self.current_pos - 1]
+        return self
+
+    def __next__(self):
+        if len(self.new_order) > 0:
+            self.remainder = (self.remainder + (self.step - 1)) % len(self.new_order)
+            outer = self.new_order[self.remainder]
+            del self.new_order[self.remainder]
+            return outer
+        else:
+            raise StopIteration
 
     # @staticmethod  # (别解除注释)
     def iterator_josephus(self):
